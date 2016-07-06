@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-jun-2016 15:07:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.grselectronics.inventario.bean.Empleado" table="empleado" catalog="db_inventario" optimistic-lock="version">
+        <id name="idEmpleado" type="java.lang.Integer">
+            <column name="id_empleado" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cargo" class="com.grselectronics.inventario.bean.Cargo" fetch="select">
+            <column name="id_cargo" />
+        </many-to-one>
+        <many-to-one name="empresa" class="com.grselectronics.inventario.bean.Empresa" fetch="select">
+            <column name="id_empresa" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="128" />
+        </property>
+        <set name="asignacionEquipos" table="asignacion_equipo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_empleado" />
+            </key>
+            <one-to-many class="com.grselectronics.inventario.bean.AsignacionEquipo" />
+        </set>
+    </class>
+</hibernate-mapping>

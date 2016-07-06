@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-jun-2016 15:07:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.grselectronics.inventario.bean.AsignacionEquipo" table="asignacion_equipo" catalog="db_inventario" optimistic-lock="version">
+        <id name="idAsignacionEquipo" type="java.lang.Integer">
+            <column name="id_asignacion_equipo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empleado" class="com.grselectronics.inventario.bean.Empleado" fetch="select">
+            <column name="id_empleado" />
+        </many-to-one>
+        <many-to-one name="equipo" class="com.grselectronics.inventario.bean.Equipo" fetch="select">
+            <column name="id_equipo" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.grselectronics.inventario.bean.Usuario" fetch="select">
+            <column name="id_usuario" />
+        </many-to-one>
+        <property name="fechaDesde" type="string">
+            <column name="fecha_desde" length="32">
+                <comment>Fecha en que fue asignado el equipo.</comment>
+            </column>
+        </property>
+        <property name="fechaHasta" type="string">
+            <column name="fecha_hasta" length="32">
+                <comment>Fecha en que fue retirada la asignaci&#243;n de equipo.</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

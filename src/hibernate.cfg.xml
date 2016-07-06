@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_inventario?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping resource="com/grselectronics/inventario/bean/Pais.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Estado.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Cargo.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Marca.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Empresa.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Rol.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Equipo.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/AsignacionEquipo.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Usuario.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/CaracteristicaEquipo.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Empleado.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/Tipo.hbm.xml"/>
+    <mapping resource="com/grselectronics/inventario/bean/ReporteEquipo.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

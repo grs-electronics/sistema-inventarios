@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-jun-2016 15:07:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.grselectronics.inventario.bean.Equipo" table="equipo" catalog="db_inventario" optimistic-lock="version">
+        <id name="idEquipo" type="java.lang.Integer">
+            <column name="id_equipo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="marca" class="com.grselectronics.inventario.bean.Marca" fetch="select">
+            <column name="id_marca" />
+        </many-to-one>
+        <property name="numeroSerie" type="string">
+            <column name="numero_serie" length="128" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="modelo" length="128" />
+        </property>
+        <property name="activo" type="string">
+            <column name="activo" length="128">
+                <comment>si/no</comment>
+            </column>
+        </property>
+        <property name="fechaCompra" type="string">
+            <column name="fecha_compra" length="32" />
+        </property>
+        <property name="finGarantia" type="string">
+            <column name="fin_garantia" length="128" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="ubicacion" length="128" />
+        </property>
+        <property name="precioCompra" type="big_decimal">
+            <column name="precio_compra" precision="10" />
+        </property>
+        <property name="valorEstimado" type="big_decimal">
+            <column name="valor_estimado" precision="10" />
+        </property>
+        <set name="asignacionEquipos" table="asignacion_equipo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_equipo" />
+            </key>
+            <one-to-many class="com.grselectronics.inventario.bean.AsignacionEquipo" />
+        </set>
+        <set name="caracteristicaEquipos" table="caracteristica_equipo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_equipo" />
+            </key>
+            <one-to-many class="com.grselectronics.inventario.bean.CaracteristicaEquipo" />
+        </set>
+        <set name="reporteEquipos" table="reporte_equipo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_equipo" />
+            </key>
+            <one-to-many class="com.grselectronics.inventario.bean.ReporteEquipo" />
+        </set>
+    </class>
+</hibernate-mapping>

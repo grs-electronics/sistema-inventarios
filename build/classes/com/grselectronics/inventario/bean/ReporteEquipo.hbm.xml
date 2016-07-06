@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23-jun-2016 15:07:54 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.grselectronics.inventario.bean.ReporteEquipo" table="reporte_equipo" catalog="db_inventario" optimistic-lock="version">
+        <id name="idReporteEquipo" type="java.lang.Integer">
+            <column name="id_reporte_equipo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="equipo" class="com.grselectronics.inventario.bean.Equipo" fetch="select">
+            <column name="id_equipo" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="128" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" />
+        </property>
+        <property name="fecha" type="string">
+            <column name="fecha" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>
