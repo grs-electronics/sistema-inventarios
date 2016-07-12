@@ -5,11 +5,11 @@ import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
 
+@SuppressWarnings("serial")
 public class MainView extends HorizontalLayout	{
 	public MainView(){
 		this.setSizeFull();
 		this.addStyleName("mainview");
-		
 		addComponent(new DashboardMenu());
 		
 		ComponentContainer content = new CssLayout();

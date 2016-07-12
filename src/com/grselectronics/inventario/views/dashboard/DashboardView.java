@@ -78,7 +78,7 @@ public class DashboardView extends Panel implements View {
         dashboardPanels = new CssLayout();
         dashboardPanels.addStyleName("dashboard-panels");
         Responsive.makeResponsive(dashboardPanels);
-
+        
         return dashboardPanels;
     }
 	 
