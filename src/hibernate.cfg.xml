@@ -6,6 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_inventario?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.current_session_context_class">thread</property>
     <mapping resource="com/grselectronics/inventario/bean/Pais.hbm.xml"/>
     <mapping resource="com/grselectronics/inventario/bean/Estado.hbm.xml"/>
     <mapping resource="com/grselectronics/inventario/bean/Cargo.hbm.xml"/>

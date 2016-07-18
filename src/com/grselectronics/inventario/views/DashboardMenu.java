@@ -8,6 +8,7 @@ import com.grselectronics.inventario.event.VProjectEvent.PostViewChangeEvent;
 import com.grselectronics.inventario.event.VProjectEvent.ProfileUpdatedEvent;
 import com.grselectronics.inventario.event.VProjectEvent.UserLoggedOutEvent;
 import com.vaadin.event.MouseEvents.ClickEvent;
+import com.vaadin.server.FontAwesome;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.shared.ui.label.ContentMode;
@@ -53,7 +54,7 @@ public final class DashboardMenu extends CustomComponent{
 
         menuContent.addComponent(buildTitle());
         menuContent.addComponent(buildUserMenu());
-        //menuContent.addComponent(buildToggleButton());
+        menuContent.addComponent(buildToggleButton());
         menuContent.addComponent(buildMenuItems());
 
         return menuContent;
@@ -167,5 +168,23 @@ public final class DashboardMenu extends CustomComponent{
                 addStyleName(STYLE_SELECTED);
             }
         }
+    }
+    private Component buildToggleButton() {
+        Button valoMenuToggleButton = new Button("Menu", new ClickListener() {
+          @Override
+			public void buttonClick(com.vaadin.ui.Button.ClickEvent event) {
+				// TODO Auto-generated method stub
+				 if (getCompositionRoot().getStyleName().contains(STYLE_VISIBLE)) {
+	                    getCompositionRoot().removeStyleName(STYLE_VISIBLE);
+	                } else {
+	                    getCompositionRoot().addStyleName(STYLE_VISIBLE);
+	                }
+			}
+        });
+        valoMenuToggleButton.setIcon(FontAwesome.LIST);
+        valoMenuToggleButton.addStyleName("valo-menu-toggle");
+        valoMenuToggleButton.addStyleName(ValoTheme.BUTTON_BORDERLESS);
+        valoMenuToggleButton.addStyleName(ValoTheme.BUTTON_SMALL);
+        return valoMenuToggleButton;
     }
 }

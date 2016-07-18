@@ -14,10 +14,10 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.themes.ValoTheme;
 
+@SuppressWarnings({ "serial", "unchecked" })
 public class DashboardView extends Panel implements View {
 	public static final String EDIT_ID = "dashboard-edit";
 	public static final String TITLE_ID = "dashboard-title";
-
 	private Label titleLabel;
 	private CssLayout dashboardPanels;
 	private final VerticalLayout root;

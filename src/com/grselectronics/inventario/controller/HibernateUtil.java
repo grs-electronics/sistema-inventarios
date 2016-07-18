@@ -11,10 +11,11 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 import com.grselectronics.inventario.bean.Usuario;
-
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
  * object.
@@ -23,7 +24,7 @@ import com.grselectronics.inventario.bean.Usuario;
  */
 public class HibernateUtil {
 
-    private static final SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
     private static HibernateUtil instancia;
     public static HibernateUtil getInstancia(){
         return (instancia==null)?new HibernateUtil():instancia;
@@ -32,7 +33,16 @@ public class HibernateUtil {
         try {
             // Create the SessionFactory from standard (hibernate.cfg.xml) 
             // config file.
-            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+            final Configuration configuration = new Configuration();
+            configuration.configure();
+            
+            final ServiceRegistryBuilder serviceRegistryBuilder = new ServiceRegistryBuilder();
+
+            final ServiceRegistry serviceRegistry = serviceRegistryBuilder
+                    .applySettings(configuration.getProperties()).build();
+
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            
         } catch (Throwable ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);

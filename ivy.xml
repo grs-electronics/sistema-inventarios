@@ -45,6 +45,10 @@
 			rev="&vaadin.version;" conf="widgetset-compile->default" />
 			
 		<!-- Google common  -->
-		<dependency org="com.google.guava" name="guava" rev="18.0"/>	
+		<dependency org="com.google.guava" name="guava" rev="18.0"/>
+		
+		<dependency org="org.vaadin.addons" name="hbncontainer" rev="2.0.1" />
+		
+			
 	</dependencies>
 </ivy-module>

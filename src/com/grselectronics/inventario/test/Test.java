@@ -5,7 +5,7 @@
  */
 package com.grselectronics.inventario.test;
 
-import com.grselectronics.inventario.bean.Pais;
+import com.grselectronics.inventario.bean.Equipo;
 import com.grselectronics.inventario.controller.HibernateUtil;
 
 /**
@@ -14,15 +14,15 @@ import com.grselectronics.inventario.controller.HibernateUtil;
  */
 public class Test {
     public static void main(String args[]){
-        for (Object obj: HibernateUtil.getInstancia().sendQuery("From Pais")) {
+        for (Object obj: HibernateUtil.getInstancia().sendQuery("From Equipo")) {
             //Equipo e=(Equipo)obj;
             //System.out.print(e.getModelo());
             //Estado e=(Estado)obj;
             //System.out.println(e.getNombre());
             //Tipo p=(Tipo)obj;
             //System.out.println(p.getNombre());
-            Pais e=(Pais)obj;
-            System.out.println(e.getNombre());
+            Equipo e=(Equipo)obj;
+            System.out.println(e.getModelo());
         }
     }
 }
